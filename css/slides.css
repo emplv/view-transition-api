@@ -14,7 +14,7 @@ body {
   font-family: "Arial", sans-serif;
   background-image: url("../img/theme-bg.svg");
   background-size: cover;
-  background-position: center;
+  background-position: right bottom;
   background-repeat: no-repeat;
   text-align: center;
   overflow: hidden;
