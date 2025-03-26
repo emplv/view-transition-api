@@ -12,7 +12,10 @@ class SlideController {
     };
 
     // Initialize immediately if document is already loaded
-    if (document.readyState === "complete" || document.readyState === "interactive") {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
       this.init();
     } else {
       // Otherwise wait for DOMContentLoaded
@@ -28,37 +31,34 @@ class SlideController {
 
     // Initialize steps if provided
     this.initializeSteps();
-    
+
     this.setupNavigationLinks();
     this.setupKeyboardNavigation();
-    
-    // Log initialization for debugging
-    console.log("SlideController initialized with config:", this.config);
   }
-  
+
   initializeSteps() {
     // If steps are provided as selectors, convert them to DOM elements
     if (this.config.steps && this.config.steps.length > 0) {
       // Convert string selectors to DOM elements if needed
-      this.config.steps = this.config.steps.map(step => 
-        typeof step === 'string' ? document.querySelector(step) : step
+      this.config.steps = this.config.steps.map((step) =>
+        typeof step === "string" ? document.querySelector(step) : step
       );
-      
+
       // Hide all steps except the first one
       this.config.steps.forEach((step, index) => {
         if (step) {
           if (index > 0) {
-            step.classList.add('hidden-step');
+            step.classList.add("hidden-step");
           } else {
-            step.classList.remove('hidden-step');
+            step.classList.remove("hidden-step");
           }
         }
       });
-      
+
       this.config.currentStep = 0;
     }
   }
-  
+
   nextStep() {
     // If we have steps defined
     if (this.config.steps && this.config.steps.length > 0) {
@@ -69,22 +69,22 @@ class SlideController {
         if (nextStepElement) {
           if (document.startViewTransition) {
             document.startViewTransition(() => {
-              nextStepElement.classList.remove('hidden-step');
+              nextStepElement.classList.remove("hidden-step");
             });
           } else {
-            nextStepElement.classList.remove('hidden-step');
+            nextStepElement.classList.remove("hidden-step");
           }
         }
         this.config.currentStep++;
         return true; // Handled the step
       }
     }
-    
+
     // If we don't have steps or we're at the last step, return false
     // to indicate we should move to the next slide
     return false;
   }
-  
+
   previousStep() {
     // If we have steps defined
     if (this.config.steps && this.config.steps.length > 0) {
@@ -95,17 +95,17 @@ class SlideController {
         if (currentStepElement) {
           if (document.startViewTransition) {
             document.startViewTransition(() => {
-              currentStepElement.classList.add('hidden-step');
+              currentStepElement.classList.add("hidden-step");
             });
           } else {
-            currentStepElement.classList.add('hidden-step');
+            currentStepElement.classList.add("hidden-step");
           }
         }
         this.config.currentStep--;
         return true; // Handled the step
       }
     }
-    
+
     // If we don't have steps or we're at the first step, return false
     // to indicate we should move to the previous slide
     return false;
@@ -134,7 +134,7 @@ class SlideController {
               this.navigateBack();
             }
           } else if (
-            link.classList.contains("next-button") || 
+            link.classList.contains("next-button") ||
             link.getAttribute("data-nav") === "next"
           ) {
             // Try to advance to the next step first
@@ -205,13 +205,7 @@ class SlideController {
   }
 
   navigateBack() {
-    // if (document.startViewTransition) {
-      // document.startViewTransition(() => {
-        history.go(-1);
-      // });
-    // } else {
-      // history.back();
-    // }
+    history.go(-1);
   }
 }
 

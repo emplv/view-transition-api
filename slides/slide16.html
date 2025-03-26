@@ -13,11 +13,8 @@
         
         // Initialize slide controller
         function initSlideController() {
-            console.log("Initializing slide controller");
             slideController = new SlideController({
                 nextSlide: 'slide17.html',
-                homeSlide: '../index.html',
-                // Define the steps in this slide
                 steps: [
                     '#step1',  // Main title
                     '#step2',  // Demo link
@@ -58,7 +55,7 @@
     </div>
 
     <div id="step2" class="demo-container hidden-step">
-        <a href="https://github.com/emplv/view-transition-api" class="presentation-link">source code</a>
+        <a href="https://github.com/emplv/view-transition-api" class="presentation-link" target="_blank">source code</a>
     </div>
 
     <div class="navigation">

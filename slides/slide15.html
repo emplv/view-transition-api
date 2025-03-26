@@ -13,11 +13,8 @@
         
         // Initialize slide controller
         function initSlideController() {
-            console.log("Initializing slide controller");
             slideController = new SlideController({
                 nextSlide: 'slide16.html',
-                homeSlide: '../index.html',
-                // Define the steps in this slide
                 steps: [
                     '#step1',  // Main title
                     '#step2',  // Demo link
@@ -53,7 +50,7 @@
         <h1 id="step1" class="slide-title question-title">Is that it?</h1>
         
         <div id="step2" class="demo-container hidden-step">
-            <a href="https://codepen.io/plavenieks/pen/xbxJrBV" class="presentation-link">demo</a>
+            <a href="https://codepen.io/plavenieks/pen/xbxJrBV" class="presentation-link" target="_blank">demo</a>
         </div>
     </div>
 
