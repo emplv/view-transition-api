@@ -25,25 +25,25 @@ body {
   view-transition-name: slide-content;
   animation: fadeIn 0.8s ease-out forwards;
 }
+.slide-title {
+  view-transition-name: slide-title;
+}
 
 h1 {
   font-size: 5rem;
   margin-bottom: 1rem;
   font-weight: 500;
-  view-transition-name: slide-h1;
 }
 h2 {
   font-size: 3em;
   margin-bottom: 1rem;
   font-weight: 500;
-  view-transition-name: slide-h2;
 }
 
 p {
   font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  view-transition-name: slide-text;
 }
 
 .navigation {
@@ -134,12 +134,18 @@ p {
   margin-right: 8px;
 }
 
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
+.red {
+  background-color: #ff5f56;
+}
+.yellow {
+  background-color: #ffbd2e;
+}
+.green {
+  background-color: #27c93f;
+}
 
 .code-content {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   color: #e0e0e0;
   font-size: 1.4rem;
   line-height: 1.6;

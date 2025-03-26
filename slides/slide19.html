@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 18 - Thank You</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: '',  // This is the last slide
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Resources section
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 18 */
+        .thank-you-title {
+            font-size: 5.5rem;
+            color: #2e2e2e;
+            margin-bottom: 3.5rem;
+            text-align: center;
+        }
+        
+        .resources-section {
+            text-align: left;
+            width: 1200px;
+            margin: 0 auto;
+            padding-left: 6rem;
+        }
+        
+        .resources-heading {
+            font-size: 2.2rem;
+            color: #2e2e2e;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .resources-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .resources-list li {
+            font-size: 1.8rem;
+            color: #2e2e2e;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .resources-list li::before {
+            content: "-";
+            margin-right: 0.8rem;
+        }
+        
+        .resources-list a {
+            color: #7c3aed;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-info {
+            font-size: 1.6rem;
+            color: #2e2e2e;
+            margin-top: 3.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .contact-separator {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="slide-title thank-you-title">Thank you!</h1>
+        
+        <div id="step2" class="resources-section hidden-step" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 class="resources-heading">Useful resources & good reads:</h2>
+                <ul class="resources-list">
+                    <li>MDN web docs: View Transition API</li>
+                    <li>Chrome for developers: View Transition API</li>
+                    <li>www.bram.us</li>
+                    <li>https://github.com/WICG/view-transitions</li>
+                    <li>https://frontendatscale.com/issues/43/</li>
+                    <li>https://www.builder.io/blog/view-transitions</li>
+                    <li>https://www.w3.org/TR/css-view-transitions-1/</li>
+                    <li>https://github.com/emplv/view-transition-api</li>
+                </ul>
+            </div>
+            <div>
+                <img src="../img/qr.svg" alt="qr" style="width: 400px; height: 400px;">
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <span>emils@plavenieks.lv</span>
+            <span class="contact-separator">|</span>
+            <span>www.emp.lv</span>
+            <span class="contact-separator">|</span>
+            <span>@emplv</span>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

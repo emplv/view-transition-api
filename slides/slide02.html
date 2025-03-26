@@ -65,6 +65,7 @@
             flex-direction: column;
             align-items: center;
             gap: 3rem;
+            view-transition-name: video-container;
         }
         
         .profile-image img {
@@ -80,6 +81,7 @@
         
         .title-list {
             margin-bottom: 2rem;
+            view-transition-name: video1;
         }
         
         .title-list p {
@@ -90,6 +92,7 @@
         
         .personal-list {
             margin-bottom: 2rem;
+            view-transition-name: video2;
         }
         
         .personal-list p {
@@ -104,6 +107,7 @@
             color: #2e2e2e;
             display: flex;
             gap: 2rem;
+            view-transition-name: video3;
         }
         
         
@@ -130,7 +134,7 @@
 <body>
     <div class="slide-content profile-container">
         <div class="profile-info">
-            <h1 id="step1">Emīls Pļavenieks</h1>
+            <h1 id="step1" class="slide-title">Emīls Pļavenieks</h1>
             
             <div class="title-list">
                 <p id="step2" class="hidden-step">Lead frontend developer</p>

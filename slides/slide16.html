@@ -20,6 +20,7 @@
                 // Define the steps in this slide
                 steps: [
                     '#step1',  // Main title
+                    '#step2',  // Demo link
                 ]
             });
         }
@@ -44,11 +45,20 @@
             align-self: flex-start;
             margin-left: 3rem;
         }
+
+        .demo-container {
+            margin-top: 3rem;
+            font-size: 2.5rem;
+        }
     </style>
 </head>
 <body>
     <div class="slide-content">
-        <h1 id="step1" class="btw-title">i use view transition btw</h1>
+        <h1 id="step1" class="slide-title btw-title">i use view transition btw</h1>
+    </div>
+
+    <div id="step2" class="demo-container hidden-step">
+        <a href="https://github.com/emplv/view-transition-api" class="presentation-link">source code</a>
     </div>
 
     <div class="navigation">
