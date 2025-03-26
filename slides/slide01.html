@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 01</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide02.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1', // First step (h1)
+                    '#step2'  // Second step (h2)
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1">Unlock Magic <span style="font-size: 8rem;">🔮</span></h1>
+        <h2 id="step2" class="hidden-step">View Transition API</h2>        
+    </div>
+
+    <div class="navigation">
+        <a href="../index.html" class="nav-button hidden">Home</a>
+        <a href="#" class="nav-button next-button">></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 04 - View Transitions API Types</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide05.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide - each line is a step
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Same Page (SPAs) heading
+                    '#step3',  // JavaScript API
+                    '#step4',  // Can animate ANYTHING
+                    '#step5',  // Simple to use
+                    '#step6',  // Non breaking fallbacks
+                    '#step7',  // Across Pages (MPAs) heading
+                    '#step8',  // Animate to different page
+                    '#step9',  // Uses only HTML and CSS
+                    '#step10',  // Already available in most browsers
+                    '#step11',  // Feels like magic
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 4 */
+        .api-title {
+            font-size: 5rem;
+            margin-bottom: 3rem;
+            color: #2e2e2e;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+            margin-top: 2rem;
+        }
+        
+        .column {
+            flex: 1;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .column-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #2e2e2e;
+            font-weight: 600;
+        }
+        
+        .feature-item {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            color: #2e2e2e;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="api-title">API</h1>
+        
+        <div class="comparison-container">
+            <div class="column">
+                <h2 id="step2" class="column-title hidden-step">Same Page (SPAs)</h2>
+                
+                <p id="step3" class="feature-item hidden-step">JavaScript API</p>
+                <p id="step4" class="feature-item hidden-step">Can animate ANYTHING</p>
+                <p id="step5" class="feature-item hidden-step">Simple to use</p>
+                <p id="step6" class="feature-item hidden-step">Non breaking fallbacks</p>
+            </div>
+            
+            <div class="column">
+                <h2 id="step7" class="column-title hidden-step">Across Pages (MPAs)</h2>
+                
+                <p id="step8" class="feature-item hidden-step">Animate to different page</p>
+                <p id="step9" class="feature-item hidden-step">Uses only HTML and CSS</p>
+                <p id="step10" class="feature-item hidden-step">Already available in most browsers</p>
+                <p id="step11" class="feature-item hidden-step">Feels like magic</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

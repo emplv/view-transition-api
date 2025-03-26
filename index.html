@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Presentation Home</title>
+    <link rel="stylesheet" href="css/slides.css">
+    <style>
+        .home-content {
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .start-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .start-button:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+    <script src="js/slide-transitions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the controller for the home page
+            new SlideController({
+                nextSlide: 'slides/slide01.html'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="slide-content home-content">
+        <h1>Unlock Magic: View Transition API</h1>
+        <h2>FrontEnd Meetup Riga</h2>
+        <p>March 26th, 2025 @StartUpHouse</p>
+        <a href="slides/slide01.html" class="start-button">Start Presentation</a>
+    </div>
+</body>
+</html>

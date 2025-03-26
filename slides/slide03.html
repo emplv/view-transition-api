@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 03 - View Transitions Magic</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide04.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1', // Title
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 3 */
+        .magic-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: #2e2e2e;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 1100px;
+            height: 800px;
+            position: relative;
+        }
+        
+        .video-player {
+            width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-player video {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+        }
+        
+        .video-caption {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            color: #555;
+            text-align: center;
+        }
+
+        .video1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .video2 {
+            position: absolute;
+            top: 150px;
+            right: 0;
+            z-index: 4;
+        }
+
+        .video3 {
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            z-index: 1;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="magic-title">Ever thought what kind of sorcery is this?</h1>
+        
+        <div class="video-container">
+            <div class="video-player video1">
+                <video controls autoplay muted loop>
+                    <source src="../videos/vt-vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="video-player video2">
+                <video controls autoplay muted loop>
+                    <source src="../videos/vt-vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="video-player video3">
+                <video controls autoplay muted loop>
+                    <source src="../videos/vt-vid3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

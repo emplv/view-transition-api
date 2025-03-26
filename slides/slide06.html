@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 06 - View Transition Concepts</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide07.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Link
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 6 */
+        .question-title {
+            font-size: 5rem;
+            margin-bottom: 5rem;
+            color: #2e2e2e;
+            max-width: 1000px;
+            line-height: 1.2;
+        }
+        
+        .link-container {
+            margin-top: 4rem;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="question-title">Snapshot? Crossfade?<br>What? How?</h1>
+        
+        <div id="step2" class="link-container hidden-step">
+            <a href="https://developer.chrome.com/docs/web-platform/view-transitions/" class="presentation-link" target="_blank">pseudo elements visualized</a>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

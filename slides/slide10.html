@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 10 - Few Examples</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide11.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Demo links
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 10 */
+        .examples-title {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: #2e2e2e;
+        }
+        
+        .example-image {
+            max-width: 300px;
+            border-radius: 8px;
+            margin: 1rem 0 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+        
+        .demo-links a {
+            margin: 0 0.5rem;
+        }
+        
+        .separator {
+            color: #666;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="examples-title">Few examples</h1>
+        
+        <div>
+            <img src="../img/magic.gif" alt="magic" class="example-image">
+        </div>
+        
+        <div id="step2" class="demo-links hidden-step">
+            <a href="#" class="presentation-link">demo1</a>
+            <span class="separator">|</span>
+            <a href="#" class="presentation-link">demo2</a>
+            <span class="separator">|</span>
+            <a href="#" class="presentation-link">demo3</a>
+            <span class="separator">|</span>
+            <a href="#" class="presentation-link">demo4</a>
+            <span class="separator">|</span>
+            <a href="#" class="presentation-link">demo5</a>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

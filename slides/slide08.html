@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 08 - Crossfade</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide09.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // By default
+                    '#step3',  // Reduced motion
+                    '#step4',  // Demo link
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 8 */
+        .crossfade-title {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: #2e2e2e;
+        }
+        
+        .feature-text {
+            font-size: 2.2rem;
+            margin: 1.5rem 0;
+            color: #2e2e2e;
+            max-width: 900px;
+            text-align: center;
+        }
+        
+        .demo-container {
+            margin-top: 3rem;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="crossfade-title">Crossfade</h1>
+        
+        <p id="step2" class="feature-text hidden-step">By default</p>
+        
+        <p id="step3" class="feature-text hidden-step">Reduced motion - prevents motion sickness</p>
+        
+        <div id="step4" class="demo-container hidden-step">
+            <a href="https://developer.chrome.com/docs/web-platform/view-transitions/cross-fade-demo/" class="presentation-link" target="_blank">demo</a>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 02 - About Me</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide03.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',
+                    '#step2',
+                    '#step3',
+                    '#step4',
+                    '#step5',
+                    '#step6',
+                    '#step7',
+                    '#step8',
+                    '#step9',
+                    '#step10'
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 2 */
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .profile-info {
+            text-align: left;
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .profile-image {
+            flex: 0 0 auto;
+            margin-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .profile-image img {
+            max-width: 300px;
+            border-radius: 4px;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #2e2e2e;
+        }
+        
+        .title-list {
+            margin-bottom: 2rem;
+        }
+        
+        .title-list p {
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            line-height: 1.4;
+        }
+        
+        .personal-list {
+            margin-bottom: 2rem;
+        }
+        
+        .personal-list p {
+            font-size: 1.6rem;
+            margin: 0.3rem 0;
+            line-height: 1.4;
+        }
+        
+        .contact-info {
+            font-size: 1.4rem;
+            margin-top: 3rem;
+            color: #2e2e2e;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        
+        .logo {
+            height: 90px;
+        }
+        
+        /* Animation for each step */
+        .hidden-step {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+        
+        /* When a step is revealed, apply the fadeIn animation */
+        .slide-content p:not(.hidden-step),
+        .slide-content h1:not(.hidden-step),
+        .slide-content h2:not(.hidden-step),
+        .slide-content div:not(.hidden-step) {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content profile-container">
+        <div class="profile-info">
+            <h1 id="step1">Emīls Pļavenieks</h1>
+            
+            <div class="title-list">
+                <p id="step2" class="hidden-step">Lead frontend developer</p>
+                <p id="step3" class="hidden-step">Senior fullstack engineer</p>
+                <p id="step4" class="hidden-step">Simply a passionate coder</p>
+            </div>
+            
+            <div class="personal-list">
+                <p id="step5" class="hidden-step">Code golfer</p>
+                <p id="step6" class="hidden-step">Multiple hackathon winner</p>
+                <p id="step7" class="hidden-step">Motorcycle track rider</p>
+                <p id="step8" class="hidden-step">Husband and father of 2</p>
+                <p id="step9" class="hidden-step">Specialty coffee shop co-owner</p>
+                <p id="step10" class="hidden-step">Everything is possible mentality</p>
+            </div>
+            
+            <div class="contact-info">
+                <p>emils@plavenieks.lv</p>
+                <p> | </p>
+                <p>www.emp.lv</p>
+                <p> | </p>
+                <p>@emplv</p>
+            </div>
+        </div>
+        
+        <div class="profile-image">
+            <img src="../img/me.jpg" alt="Emīls Pļavenieks" class="me">
+            <img src="../img/TraceSpace.png" alt="Trace Space" class="logo">
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html>

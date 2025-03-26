@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 05 - View Transition Explained</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide06.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Subtitle
+                    '#step3',  // Code example
+                    '#step4',  // Bottom text
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 5 */
+        .main-title {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: #2e2e2e;
+        }
+        
+        .subtitle {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: #2e2e2e;
+            max-width: 900px;
+            text-align: center;
+            line-height: 1.4;
+        }
+       
+        .bottom-text {
+            font-size: 2rem;
+            margin-top: 2.5rem;
+            color: #2e2e2e;
+            max-width: 900px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="main-title">View Transition</h1>
+        
+        <p id="step2" class="subtitle hidden-step">Pick a DOM modification, tell the browser you will do.<br />Then just do it.</p>
+        
+        <div id="step3" class="code-container hidden-step">
+            <div class="code-header">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+            </div>
+            <div class="code-content">
+<span class="comment">// browser: takes a snapshot (old)</span>
+document.<span class="function">startViewTransition</span>(<span class="async">async</span> () => {
+    <span class="comment">// app: do DOM changes</span>
+    <span class="comment">// browser: takes a snapshot (new)</span>
+})
+<span class="comment">// browser: transitions to new snapshot</span></div>
+        </div>
+        
+        <p id="step4" class="bottom-text hidden-step">Browser handles transitioning between states</p>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

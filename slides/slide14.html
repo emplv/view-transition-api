@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 14 - Recap</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide15.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Point 1
+                    '#step3',  // Point 2
+                    '#step4',  // Point 3
+                    '#step5',  // Point 4
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 14 */
+        .recap-title {
+            font-size: 5rem;
+            color: #2e2e2e;
+            margin-bottom: 2rem;
+        }
+        
+        .recap-points {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2e2e2e;
+            margin: 1rem 0;
+        }
+        
+        .recap-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content">
+        <h1 id="step1" class="recap-title">Recap</h1>
+        
+        <div class="recap-list">
+            <p id="step2" class="recap-points hidden-step">- Transition anything</p>
+            <p id="step3" class="recap-points hidden-step">- Opt-in for morphing</p>
+            <p id="step4" class="recap-points hidden-step">- Customize animations</p>
+            <p id="step5" class="recap-points hidden-step">- Distinctive rules for entry and exit</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 

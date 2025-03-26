@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
+    <title>Slide 07 - Enhance Gradually</title>
+    <link rel="stylesheet" href="../css/slides.css">
+    <script src="../js/slide-transitions.js"></script>
+    <script>
+        // Create a global variable to hold the controller instance
+        let slideController;
+        
+        // Initialize slide controller
+        function initSlideController() {
+            console.log("Initializing slide controller");
+            slideController = new SlideController({
+                nextSlide: 'slide08.html',
+                homeSlide: '../index.html',
+                // Define the steps in this slide
+                steps: [
+                    '#step1',  // Main title
+                    '#step2',  // Code example
+                ]
+            });
+        }
+        
+        // Initialize on both DOMContentLoaded and window load to ensure it runs
+        document.addEventListener('DOMContentLoaded', initSlideController);
+        window.addEventListener('load', initSlideController);
+        
+        // Fallback - if the page is already loaded, initialize immediately
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initSlideController();
+        }
+    </script>
+    <style>
+        /* Additional styles specific to slide 7 */
+        .enhance-title {
+            font-size: 4.5rem;
+            margin-bottom: 3rem;
+            color: #2e2e2e;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-content" style="display: flex; flex-direction: column; align-items: center;">
+        <h1 id="step1" class="enhance-title">Enhance your page gradually</h1>
+        
+        <div id="step2" class="code-container hidden-step">
+            <div class="code-header">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+            </div>
+            <div class="code-content">
+<span class="function">function</span> <span class="method">onClick</span>() {
+  <span class="keyword">if</span> (document.<span class="condition">startViewTransition</span>) {
+    document.<span class="method">startViewTransition</span>(<span class="async">async</span> () => {
+      modify(document)
+    })
+  } <span class="keyword">else</span> {
+    modify(document)
+  }
+}</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="#" class="nav-button prev-button">&lt;</a>
+        <a href="#" class="nav-button next-button">&gt;</a>
+    </div>
+</body>
+</html> 
