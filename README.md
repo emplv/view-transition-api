@@ -1,3 +1,5 @@
+‼️ This was vibe coded with slight whiskers of oversight
+
 # View Transition API Presentation
 
 ## Overview
